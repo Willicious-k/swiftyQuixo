@@ -1,5 +1,5 @@
 //
-//  Dealer.swift
+//  SessionController.swift
 //  swiftyQuixo
 //
 //  Created by 김성종 on 2018. 3. 23..
@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+class SessionController {
+  
+}

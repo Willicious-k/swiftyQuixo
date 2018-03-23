@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E68791A206515B6005A2CD9 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E687919206515B6005A2CD9 /* SessionController.swift */; };
 		1EB0D4E32064EE290062D65E /* Soldier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB0D4E22064EE290062D65E /* Soldier.swift */; };
-		1EB0D4E52064EE350062D65E /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB0D4E42064EE350062D65E /* Dealer.swift */; };
 		1EB0D4E92064F40F0062D65E /* SoldierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB0D4E82064F40F0062D65E /* SoldierView.swift */; };
 		1EBA724E2064E7BD007B0AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBA724D2064E7BD007B0AE1 /* AppDelegate.swift */; };
 		1EBA72502064E7BD007B0AE1 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBA724F2064E7BD007B0AE1 /* GameViewController.swift */; };
@@ -19,8 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E687919206515B6005A2CD9 /* SessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
 		1EB0D4E22064EE290062D65E /* Soldier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soldier.swift; sourceTree = "<group>"; };
-		1EB0D4E42064EE350062D65E /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		1EB0D4E82064F40F0062D65E /* SoldierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldierView.swift; sourceTree = "<group>"; };
 		1EBA724A2064E7BD007B0AE1 /* swiftyQuixo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftyQuixo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EBA724D2064E7BD007B0AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				1EB0D4E22064EE290062D65E /* Soldier.swift */,
-				1EB0D4E42064EE350062D65E /* Dealer.swift */,
+				1E687919206515B6005A2CD9 /* SessionController.swift */,
 				1EBA725F2064EABA007B0AE1 /* MenuViewController.swift */,
 				1EBA724F2064E7BD007B0AE1 /* GameViewController.swift */,
 			);
@@ -167,8 +167,8 @@
 				1EBA72502064E7BD007B0AE1 /* GameViewController.swift in Sources */,
 				1EBA72602064EABA007B0AE1 /* MenuViewController.swift in Sources */,
 				1EB0D4E32064EE290062D65E /* Soldier.swift in Sources */,
-				1EB0D4E52064EE350062D65E /* Dealer.swift in Sources */,
 				1EBA724E2064E7BD007B0AE1 /* AppDelegate.swift in Sources */,
+				1E68791A206515B6005A2CD9 /* SessionController.swift in Sources */,
 				1EB0D4E92064F40F0062D65E /* SoldierView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

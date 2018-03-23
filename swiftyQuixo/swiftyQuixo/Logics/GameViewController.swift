@@ -9,12 +9,17 @@
 import UIKit
 
 class GameViewController: UIViewController {
-  // MARK: Properties
+  // MARK: Data Properties
+  var soldierViews: [SoldierView] = []
+  var soldiers: [Soldier] = []
+  
+  // MARK: drawable Properties
   @IBOutlet weak var board: UIView!
-  var cubes: [SoldierView] = []
   var boardWidth: CGFloat = 0
   var boardHeight: CGFloat = 0
-  var cubeSize: CGSize = CGSize()
+  var cellWidth: CGFloat = 0
+  var cellHeight: CGFloat = 0
+  var cellSize: CGSize = CGSize()
   
 //  var boardData
 //  var viewCells
@@ -22,25 +27,30 @@ class GameViewController: UIViewController {
   // MARK: LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    claculateSizes()
-    drawCells()
+    // manually setup board
+    calculateSizes()
+    drawBoard()
   }
   
-  // MARK: helpers
-  func claculateSizes() {
+  //MARK:- helpers
+  func calculateSizes() {
     boardWidth = board.frame.width
     boardHeight = board.frame.height
     
-    let cellwidth = boardWidth / 5
-    let cellheight = boardHeight / 5
-    cubeSize = CGSize(width: cellwidth, height: cellheight)
+    cellWidth = boardWidth / 5
+    cellHeight = boardHeight / 5
+    cellSize = CGSize(width: cellWidth, height: cellHeight)
   }
   
-  func drawCells()  {
-    var startPoint: CGPoint = CGPoint(x: 0, y: 0)
-    for i in 0..<4 {
-      for j in 0..<4 {
-        let cell = SoldierView(frame: CGRect(origin: startPoint, size: cubeSize))
+  func drawBoard() {
+    for i in 0..<5 {
+      for j in 0..<5 {
+        //MARK: 여백 왜 이러냐
+        let testCell = SoldierView(frame: CGRect(x: CGFloat(i)*cellWidth + CGFloat(i+1)*6.2,
+                                                 y: CGFloat(j)*cellHeight + CGFloat(j+1)*6.2,
+                                                 width: cellWidth,
+                                                 height: cellHeight))
+        board.addSubview(testCell)
       }
     }
     

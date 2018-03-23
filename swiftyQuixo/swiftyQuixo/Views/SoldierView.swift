@@ -10,7 +10,9 @@ import UIKit
 
 class SoldierView: UIView {
   
-  let strings: [String] = ["?","◼︎","×"]
+  let faceString: [String] = ["?","✪","★"]
+  
+  var face: UILabel!
   
   // MARK: inits
   required init?(coder aDecoder: NSCoder) {
@@ -20,6 +22,15 @@ class SoldierView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     self.frame = frame
+    self.layer.cornerRadius = 28
+    
+    face = UILabel(frame:CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+    face.textAlignment = .center
+    face.text = "?"
+    
+    backgroundColor = .yellow
+    
+    addSubview(face)
   }
   
   // MARK: data injection
@@ -27,11 +38,11 @@ class SoldierView: UIView {
     didSet {
       switch data.side {
       case .none:
-        print()
+        face.text = faceString[0]
       case .p1:
-        print()
+        face.text = faceString[1]
       case .p2:
-        print()
+        face.text = faceString[2]
       }
     }
   }
