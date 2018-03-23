@@ -7,14 +7,20 @@
 //
 
 import Foundation
+import UIKit
 
-struct Soldier {
+class Soldier {
   var location: (Int, Int) = (0, 0)
   var side: SoldierSide = .none
+  var isSelected: Bool = false
   
-  enum SoldierSide {
-    case none
-    case p1
-    case p2
+  init(i: Int, j: Int) {
+    self.location = (i, j)
+  }
+  
+  enum SoldierSide: Int {
+    case none = 0
+    case p1 = 1
+    case p2 = 2
   }
 }

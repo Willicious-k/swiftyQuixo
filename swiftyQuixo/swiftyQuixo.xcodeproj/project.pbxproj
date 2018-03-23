@@ -62,9 +62,9 @@
 			children = (
 				1EB0D4E22064EE290062D65E /* Soldier.swift */,
 				1EFF156E20652890005C1F5C /* Log.swift */,
+				1EBA725F2064EABA007B0AE1 /* MenuViewController.swift */,
 				1E687919206515B6005A2CD9 /* SessionController.swift */,
 				1EDA186320651FC700D88769 /* GameController.swift */,
-				1EBA725F2064EABA007B0AE1 /* MenuViewController.swift */,
 				1EBA724F2064E7BD007B0AE1 /* GameViewController.swift */,
 			);
 			path = Logics;

@@ -8,12 +8,19 @@
 
 import UIKit
 
+protocol SoldierViewDelegate {
+  func selectedCell(_ sender: SoldierView)
+}
+
 class SoldierView: UIView {
+  let faceString: [String] = [" ","✪","★"]
   
-  let faceString: [String] = ["?","✪","★"]
+  var delegate: GameViewController?
   
   var face: UILabel!
-  var panRecognizer = UIPanGestureRecognizer()
+  var tapRecognizer = UITapGestureRecognizer()
+//  var panRecognizer = UIPanGestureRecognizer()
+//  var swipeRecognizer = UISwipeGestureRecognizer()
   
   // MARK: inits
   required init?(coder aDecoder: NSCoder) {
@@ -31,16 +38,19 @@ class SoldierView: UIView {
     face = UILabel(frame:CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
     face.textAlignment = .center
     
-    panRecognizer.minimumNumberOfTouches = 1
-    panRecognizer.addTarget(self, action: #selector(self.moveCell))
+    tapRecognizer.addTarget(self, action: #selector(self.selectCell(_:)))
     
+//    panRecognizer.minimumNumberOfTouches = 1
+//    panRecognizer.addTarget(self, action: #selector(self.moveCell))
+//    swipeRecognizer.direction = .down
+//    swipeRecognizer.addTarget(self, action: #selector(self.swipeCell))
     addSubview(face)
   }
   
   // MARK: data injection
   var data: Soldier! {
     didSet {
-      makeActive()
+//      makeActive()
       
       switch data.side {
       case .none:
@@ -54,12 +64,13 @@ class SoldierView: UIView {
   }
   
   //MARK: helpers
-  func makeActive() {
-    if isEdge() {
+  func makeActive(player: Soldier.SoldierSide) {
+    if isEdge() && (data.side == .none || data.side == player){
       layer.borderColor = UIColor.green.cgColor
       self.backgroundColor = UIColor.green
       
-      self.addGestureRecognizer(panRecognizer)
+      self.addGestureRecognizer(tapRecognizer)
+//      self.addGestureRecognizer(swipeRecognizer)
       // self.removeGestureRecognizer(tapRecognizer)
     }
   }
@@ -71,7 +82,22 @@ class SoldierView: UIView {
     return false
   }
   
-  @objc func moveCell() {
-    self.center = self.panRecognizer.location(in: self.superview)
+  @objc func selectCell(_ sender: UITapGestureRecognizer) {
+    if (data.isSelected == false) {
+      self.backgroundColor = .red
+      self.data.isSelected = true
+    } else {
+      self.backgroundColor = .green
+      self.data.isSelected = false
+    }
+    delegate?.selectedCell(self)
   }
+  
+//  @objc func moveCell(_ sender: UIPanGestureRecognizer) {
+//    self.center = self.panRecognizer.location(in: self.superview)
+//  }
+//
+//  @objc func swipeCell(_ sender: UISwipeGestureRecognizer) {
+//    self.center = self.swipeRecognizer.location(in: self.superview)
+//  }
 }

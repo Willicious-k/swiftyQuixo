@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Log {
+class Log {
   
 }

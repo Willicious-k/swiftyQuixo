@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
   
   //MARK: GamePlay Properties
   var gameController: GameController = GameController()
+  var currentPlayer: Soldier.SoldierSide = .none
   
   // MARK: drawable Properties
   @IBOutlet weak var board: UIView!
@@ -27,18 +28,26 @@ class GameViewController: UIViewController {
   // MARK:- LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    gameController.gameViewController = self
     
     // manually draw board
     calculateSizes()
     drawBoard()
     
     // connect views with data
-    soldiers = gameController.makeSoldiers()
+    soldiers = gameController.makeSoldiers(boardFrame: board.frame)
     for i in 0..<5 {
       for j in 0..<5 {
         soldierViews[i][j].data = soldiers[i][j]
       }
     }
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    //Game Start animation here
+    gameController.startGameLoop()
   }
   
   //MARK:- helpers
@@ -60,12 +69,32 @@ class GameViewController: UIViewController {
                                                    y: CGFloat(j)*cellHeight + CGFloat(j+1)*6.2,
                                                    width: cellWidth,
                                                    height: cellHeight))
-        
+        targetCell.delegate = self
         soldierViews[i].append(targetCell)
         board.addSubview(targetCell)
       }
     }
   }
   
+  //MARK:- gamePlay
+  func makeActive(for player: Soldier.SoldierSide) {
+    for i in 0..<5 {
+      for j in 0..<5 {
+        soldierViews[i][j].makeActive(player: player)
+      }
+    }
+    currentPlayer = player
+  }
+  
+}
 
+//MARK: selected Noti
+extension GameViewController: SoldierViewDelegate {
+  func selectedCell(_ sender: SoldierView) {
+    if (sender.data.isSelected == true) {
+      sender.face.text = sender.faceString[currentPlayer.rawValue]
+    } else {
+      sender.face.text = sender.faceString[Soldier.SoldierSide.none.rawValue]
+    }
+  }
 }
