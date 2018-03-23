@@ -22,13 +22,13 @@ class SoldierView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     self.frame = frame
-    self.layer.cornerRadius = 28
+    
+    layer.cornerRadius = 28
+    layer.borderWidth = 0.5
+    layer.borderColor = UIColor.black.cgColor
     
     face = UILabel(frame:CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
     face.textAlignment = .center
-    face.text = "?"
-    
-    backgroundColor = .yellow
     
     addSubview(face)
   }
