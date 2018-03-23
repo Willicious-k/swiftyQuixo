@@ -47,17 +47,16 @@ class GameController {
       if (from.location.1 > to.location.1 ) { // 아랫돌 빼서 위에 괴기, slide down
         let c = from.location.1 - to.location.1
         for i in 0..<c {
-          var source = soldiers[from.location.0][from.location.1 - (i+1)].side
-          var target = soldiers[from.location.0][from.location.1 - i].side
-          target = source
+          print("source: \(soldiers[from.location.0][from.location.1 - (i+1)].side)")
+          let source = soldiers[from.location.0][from.location.1 - (i+1)].side
+          soldiers[from.location.0][from.location.1 - i].side = source
         }
         soldiers[to.location.0][to.location.1].side = currentPlayer
       } else { // 윗돌 빼서 아래에 괴기, slide up
         let c = to.location.1 - from.location.1
         for i in 0..<c {
-          var source = soldiers[from.location.0][from.location.1 + (i+1)].side
-          var target = soldiers[from.location.0][from.location.1 + i].side
-          target = source
+          let source = soldiers[from.location.0][from.location.1 + (i+1)].side
+          soldiers[from.location.0][from.location.1 + i].side = source
         }
         soldiers[to.location.0][to.location.1].side = currentPlayer
       }
@@ -65,22 +64,21 @@ class GameController {
       if (from.location.0 > to.location.0) { // left to right
         let c = from.location.0 - to.location.0
         for i in 0..<c {
-          var source = soldiers[from.location.0 - (i+1)][from.location.1].side
-          var target = soldiers[from.location.0 - i][from.location.1].side
-          target = source
+          let source = soldiers[from.location.0 - (i+1)][from.location.1].side
+          soldiers[from.location.0 - i][from.location.1].side = source
         }
         soldiers[to.location.0][to.location.1].side = currentPlayer
       } else { // right to left
         let c = to.location.0 - from.location.0
         for i in 0..<c {
-          var source = soldiers[from.location.0 + (i+1)][from.location.1].side
-          var target = soldiers[from.location.0 + i][from.location.1].side
-          target = source
+          let source = soldiers[from.location.0 + (i+1)][from.location.1].side
+          soldiers[from.location.0 + i][from.location.1].side = source
         }
         soldiers[to.location.0][to.location.1].side = currentPlayer
         }
       }
     
+    print("\(to.location) -> \(to.side)")
     winner = checkWinner()
     
     //MARK: early exit with winner

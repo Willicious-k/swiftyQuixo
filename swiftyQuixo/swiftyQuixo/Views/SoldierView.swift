@@ -37,6 +37,7 @@ class SoldierView: UIView {
     
     face = UILabel(frame:CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
     face.textAlignment = .center
+    face.font = UIFont.systemFont(ofSize: 42)
     
     addSubview(face)
   }

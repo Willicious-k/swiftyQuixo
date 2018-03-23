@@ -143,17 +143,11 @@ class GameViewController: UIViewController {
 extension GameViewController: SoldierViewDelegate {
   // MARK: maybe Multiple Select filter is required??
   func selectedCell(_ sender: SoldierView) {
-    if (sender.data.isSelected == true) {
-      sender.face.text = sender.faceString[Soldier.SoldierSide.none.rawValue]
-      sender.data.isSelected = false
-      currentSelectedCell = nil
-    } else { // false, make selection
-      sender.face.text = sender.faceString[currentPlayer.rawValue]
-      sender.backgroundColor = .orange
-      sender.layer.borderColor = UIColor.orange.cgColor
-      sender.data.isSelected = true
-      currentSelectedCell = sender
-    }
+    sender.face.text = sender.faceString[currentPlayer.rawValue]
+    sender.backgroundColor = .orange
+    sender.layer.borderColor = UIColor.orange.cgColor
+    sender.data.isSelected = true
+    currentSelectedCell = sender
     makeDeactive()
   }
   
@@ -164,8 +158,10 @@ extension GameViewController: SoldierViewDelegate {
     
     for i in 0..<5 {
       for j in 0..<5 {
-        soldierViews[i][j].backgroundColor = .white
-        soldierViews[i][j].layer.borderColor = UIColor.black.cgColor
+        soldierViews[i][j].backgroundColor = UIColor(red: 168 / 255, green: 133 / 255, blue: 83 / 255, alpha: 1.0)
+        soldierViews[i][j].layer.borderColor = UIColor(red: 168 / 255, green: 133 / 255, blue: 83 / 255, alpha: 1.0).cgColor
+        soldierViews[i][j].tapRecognizer.removeTarget(soldierViews[i][j], action: #selector(soldierViews[i][j].selectTarget(_:)))
+        soldierViews[i][j].removeGestureRecognizer(soldierViews[i][j].tapRecognizer)
       }
     }
     

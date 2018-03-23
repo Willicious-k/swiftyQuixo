@@ -52,7 +52,9 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yS1-rH-iul">
                                         <rect key="frame" x="328" y="285" width="39" height="30"/>
-                                        <state key="normal" title="Reset"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="Rnc-tn-fkk" kind="unwind" unwindAction="forRewind:" id="Tyi-50-yX6"/>
                                         </connections>
@@ -112,7 +114,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhe-dG-Psj">
                                 <rect key="frame" x="170" y="478" width="34" height="30"/>
-                                <state key="normal" title="Start"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="VzH-xd-I9I" kind="show" id="ErF-ju-Pjp"/>
                                 </connections>
@@ -121,7 +125,7 @@
                                 <rect key="frame" x="71" y="129" width="233" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="42"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
