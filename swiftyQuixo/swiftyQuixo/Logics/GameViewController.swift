@@ -14,7 +14,6 @@ class GameViewController: UIViewController {
   var soldiers: [[Soldier]] = []
   
   //MARK: GamePlay Properties
-  var sessionController: SessionController = SessionController()
   var gameController: GameController = GameController()
   
   // MARK: drawable Properties

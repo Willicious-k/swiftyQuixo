@@ -13,6 +13,7 @@ class SoldierView: UIView {
   let faceString: [String] = ["?","✪","★"]
   
   var face: UILabel!
+  var panRecognizer = UIPanGestureRecognizer()
   
   // MARK: inits
   required init?(coder aDecoder: NSCoder) {
@@ -29,6 +30,9 @@ class SoldierView: UIView {
     
     face = UILabel(frame:CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
     face.textAlignment = .center
+    
+    panRecognizer.minimumNumberOfTouches = 1
+    panRecognizer.addTarget(self, action: #selector(self.moveCell))
     
     addSubview(face)
   }
@@ -53,6 +57,10 @@ class SoldierView: UIView {
   func makeActive() {
     if isEdge() {
       layer.borderColor = UIColor.green.cgColor
+      self.backgroundColor = UIColor.green
+      
+      self.addGestureRecognizer(panRecognizer)
+      // self.removeGestureRecognizer(tapRecognizer)
     }
   }
   
@@ -63,4 +71,7 @@ class SoldierView: UIView {
     return false
   }
   
+  @objc func moveCell() {
+    self.center = self.panRecognizer.location(in: self.superview)
+  }
 }

@@ -17,6 +17,7 @@
 		1EBA72582064E7BD007B0AE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EBA72562064E7BD007B0AE1 /* LaunchScreen.storyboard */; };
 		1EBA72602064EABA007B0AE1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBA725F2064EABA007B0AE1 /* MenuViewController.swift */; };
 		1EDA186420651FC700D88769 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA186320651FC700D88769 /* GameController.swift */; };
+		1EFF156F20652890005C1F5C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFF156E20652890005C1F5C /* Log.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1EBA72592064E7BD007B0AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EBA725F2064EABA007B0AE1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1EDA186320651FC700D88769 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		1EFF156E20652890005C1F5C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				1EB0D4E22064EE290062D65E /* Soldier.swift */,
+				1EFF156E20652890005C1F5C /* Log.swift */,
 				1E687919206515B6005A2CD9 /* SessionController.swift */,
 				1EDA186320651FC700D88769 /* GameController.swift */,
 				1EBA725F2064EABA007B0AE1 /* MenuViewController.swift */,
@@ -173,6 +176,7 @@
 				1EBA724E2064E7BD007B0AE1 /* AppDelegate.swift in Sources */,
 				1E68791A206515B6005A2CD9 /* SessionController.swift in Sources */,
 				1EB0D4E92064F40F0062D65E /* SoldierView.swift in Sources */,
+				1EFF156F20652890005C1F5C /* Log.swift in Sources */,
 				1EDA186420651FC700D88769 /* GameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

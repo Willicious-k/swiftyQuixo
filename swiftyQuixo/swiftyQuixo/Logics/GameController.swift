@@ -10,6 +10,9 @@ import Foundation
 
 class GameController {
   
+  // MARK: session control, cascading initializers
+  var sessionController: SessionController = SessionController()
+  
   //MARK: this will be passed to ViewController
   var soldiers: [[Soldier]] = []
   
