@@ -134,7 +134,7 @@ class GameViewController: UIViewController {
   }
   
   func finishGame(winner: Soldier.SoldierSide) {
-    
+    print("finished!")
   }
 
 }

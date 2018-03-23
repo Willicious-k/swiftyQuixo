@@ -47,7 +47,6 @@ class GameController {
       if (from.location.1 > to.location.1 ) { // 아랫돌 빼서 위에 괴기, slide down
         let c = from.location.1 - to.location.1
         for i in 0..<c {
-          print("source: \(soldiers[from.location.0][from.location.1 - (i+1)].side)")
           let source = soldiers[from.location.0][from.location.1 - (i+1)].side
           soldiers[from.location.0][from.location.1 - i].side = source
         }
@@ -78,8 +77,7 @@ class GameController {
         }
       }
     
-    print("\(to.location) -> \(to.side)")
-    winner = checkWinner()
+    winner = checkWinner(target: to)
     
     //MARK: early exit with winner
     if (winner != .none) {
@@ -96,14 +94,43 @@ class GameController {
     gameViewController.reloadData()
   }
   
-  func checkWinner() -> Soldier.SoldierSide {
+  func checkWinner(target: Soldier) -> Soldier.SoldierSide {
+    var x = true
+    var y = true
+    var slash = false
+    // x axis
     for i in 0..<5 {
-      for j in 0..<5 {
-        if (soldiers[i][j].side != currentPlayer) {
-          break
+      if (soldiers[i][target.location.1].side != currentPlayer) {
+        x = false
+        break
+      }
+    }
+    // y axis
+    for j in 0..<5 {
+      if (soldiers[target.location.0][j].side != currentPlayer) {
+        y = false
+        break
+      }
+    }
+    // diagonal check if needed
+    if (target.location == (0,0) || target.location == (4,4)) {
+      slash = true
+      for i in 0..<5 {
+        if (soldiers[i][i].side != currentPlayer) {
+          slash = false
         }
       }
-      
+    } else if (target.location == (0, 4) || target.location == (4, 0)) {
+      slash = true
+      for i in 0..<5 {
+        if (soldiers[i][4-i].side != currentPlayer) {
+          slash = false
+        }
+      }
+    }
+    
+    if (x || y || slash) {
+      return currentPlayer
     }
     return .none
   }
