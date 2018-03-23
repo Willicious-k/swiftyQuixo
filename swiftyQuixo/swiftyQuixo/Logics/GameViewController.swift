@@ -16,6 +16,8 @@ class GameViewController: UIViewController {
   //MARK: GamePlay Properties
   var gameController: GameController = GameController()
   var currentPlayer: Soldier.SoldierSide = .none
+  var currentSelectedCell: SoldierView!
+  var targetMovedCell: SoldierView!
   
   // MARK: drawable Properties
   @IBOutlet weak var board: UIView!
@@ -50,7 +52,7 @@ class GameViewController: UIViewController {
     gameController.startGameLoop()
   }
   
-  //MARK:- helpers
+  //MARK:- drawing helpers
   private func calculateSizes() {
     boardWidth = board.frame.width
     boardHeight = board.frame.height
@@ -86,15 +88,56 @@ class GameViewController: UIViewController {
     currentPlayer = player
   }
   
+  func makeDeactive() {
+    for i in 0..<5 {
+      for j in 0..<5 {
+        if (soldierViews[i][j] != currentSelectedCell) {
+          soldierViews[i][j].backgroundColor = .white
+          soldierViews[i][j].layer.borderColor = UIColor.black.cgColor
+        }
+        // user lose tap control here
+        soldierViews[i][j].removeGestureRecognizer(soldierViews[i][j].tapRecognizer)
+      }
+    }
+    displayCross(for: currentSelectedCell)
+  }
+  
+  func displayCross(for cell: SoldierView) {
+    for i in 0..<5 {
+      soldierViews[i][cell.data.location.1].backgroundColor = .orange
+      soldierViews[i][cell.data.location.1].layer.borderColor = UIColor.orange.cgColor
+      if (i != cell.data.location.0 && (i == 0 || i == 4)) {
+        soldierViews[i][cell.data.location.1].backgroundColor = .green
+        soldierViews[i][cell.data.location.1].layer.borderColor = UIColor.green.cgColor
+      }
+    }
+    for j in 0..<5 {
+      soldierViews[cell.data.location.0][j].backgroundColor = .orange
+      soldierViews[cell.data.location.0][j].layer.borderColor = UIColor.orange.cgColor
+      if (j != cell.data.location.1 && (j == 0 || j == 4)) {
+        soldierViews[cell.data.location.0][j].backgroundColor = .green
+        soldierViews[cell.data.location.0][j].layer.borderColor = UIColor.green.cgColor
+      }
+    }
+  }
+
 }
 
-//MARK: selected Noti
+//MARK: cell selected delegate
 extension GameViewController: SoldierViewDelegate {
+  // MARK: maybe Multiple Select filter is required??
   func selectedCell(_ sender: SoldierView) {
     if (sender.data.isSelected == true) {
-      sender.face.text = sender.faceString[currentPlayer.rawValue]
-    } else {
       sender.face.text = sender.faceString[Soldier.SoldierSide.none.rawValue]
+      sender.data.isSelected = false
+      currentSelectedCell = nil
+    } else { // false, make selection
+      sender.face.text = sender.faceString[currentPlayer.rawValue]
+      sender.backgroundColor = .orange
+      sender.layer.borderColor = UIColor.orange.cgColor
+      sender.data.isSelected = true
+      currentSelectedCell = sender
     }
+    makeDeactive()
   }
 }

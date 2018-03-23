@@ -50,8 +50,6 @@ class SoldierView: UIView {
   // MARK: data injection
   var data: Soldier! {
     didSet {
-//      makeActive()
-      
       switch data.side {
       case .none:
         face.text = faceString[0]
@@ -83,13 +81,6 @@ class SoldierView: UIView {
   }
   
   @objc func selectCell(_ sender: UITapGestureRecognizer) {
-    if (data.isSelected == false) {
-      self.backgroundColor = .red
-      self.data.isSelected = true
-    } else {
-      self.backgroundColor = .green
-      self.data.isSelected = false
-    }
     delegate?.selectedCell(self)
   }
   
