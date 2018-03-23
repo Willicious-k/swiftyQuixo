@@ -11,6 +11,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Zapfino.ttf">
+            <string>Zapfino</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="qTy-am-hZG">
@@ -30,6 +35,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" red="0.52183702259999998" green="0.22620985239999999" blue="0.32484266490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="k1o-Fn-RfX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mrw-yk-psq" secondAttribute="leading" constant="20" symbolic="YES" id="AdI-8N-olX"/>
                                     <constraint firstItem="k1o-Fn-RfX" firstAttribute="top" secondItem="mrw-yk-psq" secondAttribute="top" constant="8" id="eBu-HR-Q6s"/>
@@ -52,6 +58,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" red="0.52183702259999998" green="0.22620985239999999" blue="0.32484266490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="yS1-rH-iul" secondAttribute="trailing" constant="8" id="0JI-HZ-Ch2"/>
                                     <constraint firstAttribute="bottom" secondItem="IbG-0n-f8Y" secondAttribute="bottom" constant="8" id="1R9-pj-5dP"/>
@@ -63,15 +70,10 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6WN-0l-p12" userLabel="Board">
                                 <rect key="frame" x="12" y="158" width="351" height="351"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.52183702256944442" green="0.22620985243055555" blue="0.32484266493055558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6WN-0l-p12" secondAttribute="height" multiplier="1:1" id="xeD-jr-dpD"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,8 +117,15 @@
                                     <segue destination="VzH-xd-I9I" kind="show" id="ErF-ju-Pjp"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="swiftyQuixo" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0cN-7f-q1l">
+                                <rect key="frame" x="71" y="129" width="233" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="40"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.52183702259999998" green="0.22620985239999999" blue="0.32484266490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yhe-dG-Psj" secondAttribute="bottom" constant="159" id="3pJ-Dy-GDu"/>
                             <constraint firstItem="yhe-dG-Psj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BT6-00-S4l"/>
@@ -127,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="268" y="125"/>
+            <point key="canvasLocation" x="268" y="124.58770614692655"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nHy-u4-ydh">
