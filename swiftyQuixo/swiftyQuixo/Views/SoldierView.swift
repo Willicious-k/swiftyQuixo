@@ -36,6 +36,8 @@ class SoldierView: UIView {
   // MARK: data injection
   var data: Soldier! {
     didSet {
+      makeActive()
+      
       switch data.side {
       case .none:
         face.text = faceString[0]
@@ -46,4 +48,19 @@ class SoldierView: UIView {
       }
     }
   }
+  
+  //MARK: helpers
+  func makeActive() {
+    if isEdge() {
+      layer.borderColor = UIColor.green.cgColor
+    }
+  }
+  
+  func isEdge() -> Bool {
+    if (data.location.0 == 0 || data.location.0 == 4 || data.location.1 == 0 || data.location.1 == 4) {
+      return true
+    }
+    return false
+  }
+  
 }

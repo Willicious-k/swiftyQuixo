@@ -12,7 +12,10 @@ class GameViewController: UIViewController {
   // MARK: Data Properties
   var soldierViews: [[SoldierView]] = []
   var soldiers: [[Soldier]] = []
+  
+  //MARK: GamePlay Properties
   var sessionController: SessionController = SessionController()
+  var gameController: GameController = GameController()
   
   // MARK: drawable Properties
   @IBOutlet weak var board: UIView!
@@ -26,12 +29,17 @@ class GameViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // manually setup game components
-    makeSoldiers()
-    
     // manually draw board
     calculateSizes()
     drawBoard()
+    
+    // connect views with data
+    soldiers = gameController.makeSoldiers()
+    for i in 0..<5 {
+      for j in 0..<5 {
+        soldierViews[i][j].data = soldiers[i][j]
+      }
+    }
   }
   
   //MARK:- helpers
@@ -53,8 +61,6 @@ class GameViewController: UIViewController {
                                                    y: CGFloat(j)*cellHeight + CGFloat(j+1)*6.2,
                                                    width: cellWidth,
                                                    height: cellHeight))
-        // inject SoldierData here
-        targetCell.data = soldiers[i][j]
         
         soldierViews[i].append(targetCell)
         board.addSubview(targetCell)
@@ -62,13 +68,5 @@ class GameViewController: UIViewController {
     }
   }
   
-  private func makeSoldiers(){
-    for i in 0..<5 {
-      soldiers.append([])
-      for j in 0..<5 {
-        let targetSoldier = Soldier(location: (i, j), side: .none)
-        soldiers[i].append(targetSoldier)
-      }
-    }
-  }
+
 }
