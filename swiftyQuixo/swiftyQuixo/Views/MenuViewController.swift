@@ -20,6 +20,5 @@ class MenuViewController: UIViewController {
 // MARK: Segues
 extension MenuViewController {
   @IBAction func forRewind(_ sender: UIStoryboardSegue) {
-    
   }
 }

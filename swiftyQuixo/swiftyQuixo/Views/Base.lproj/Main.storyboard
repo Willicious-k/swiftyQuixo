@@ -89,6 +89,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vTy-N0-ryv"/>
                     </view>
+                    <connections>
+                        <outlet property="board" destination="6WN-0l-p12" id="97P-Ne-3cr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJI-DC-cQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Rnc-tn-fkk" userLabel="Exit" sceneMemberID="exit"/>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EB0D4E32064EE290062D65E /* Soldier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB0D4E22064EE290062D65E /* Soldier.swift */; };
+		1EB0D4E52064EE350062D65E /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB0D4E42064EE350062D65E /* Dealer.swift */; };
 		1EBA724E2064E7BD007B0AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBA724D2064E7BD007B0AE1 /* AppDelegate.swift */; };
 		1EBA72502064E7BD007B0AE1 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBA724F2064E7BD007B0AE1 /* GameViewController.swift */; };
 		1EBA72532064E7BD007B0AE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EBA72512064E7BD007B0AE1 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1EB0D4E22064EE290062D65E /* Soldier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soldier.swift; sourceTree = "<group>"; };
+		1EB0D4E42064EE350062D65E /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		1EBA724A2064E7BD007B0AE1 /* swiftyQuixo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftyQuixo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EBA724D2064E7BD007B0AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EBA724F2064E7BD007B0AE1 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +41,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E6A30102064ED7E008D8C77 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1EBA724F2064E7BD007B0AE1 /* GameViewController.swift */,
+				1EBA725F2064EABA007B0AE1 /* MenuViewController.swift */,
+				1EBA72512064E7BD007B0AE1 /* Main.storyboard */,
+				1EBA72562064E7BD007B0AE1 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1EB0D4E72064EE620062D65E /* Logics */ = {
+			isa = PBXGroup;
+			children = (
+				1EB0D4E22064EE290062D65E /* Soldier.swift */,
+				1EB0D4E42064EE350062D65E /* Dealer.swift */,
+			);
+			path = Logics;
+			sourceTree = "<group>";
+		};
 		1EBA72412064E7BD007B0AE1 = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +80,10 @@
 		1EBA724C2064E7BD007B0AE1 /* swiftyQuixo */ = {
 			isa = PBXGroup;
 			children = (
-				1EBA724D2064E7BD007B0AE1 /* AppDelegate.swift */,
-				1EBA724F2064E7BD007B0AE1 /* GameViewController.swift */,
-				1EBA725F2064EABA007B0AE1 /* MenuViewController.swift */,
-				1EBA72512064E7BD007B0AE1 /* Main.storyboard */,
-				1EBA72562064E7BD007B0AE1 /* LaunchScreen.storyboard */,
+				1EB0D4E72064EE620062D65E /* Logics */,
+				1E6A30102064ED7E008D8C77 /* Views */,
 				1EBA72542064E7BD007B0AE1 /* Assets.xcassets */,
+				1EBA724D2064E7BD007B0AE1 /* AppDelegate.swift */,
 				1EBA72592064E7BD007B0AE1 /* Info.plist */,
 			);
 			path = swiftyQuixo;
@@ -141,6 +163,8 @@
 			files = (
 				1EBA72502064E7BD007B0AE1 /* GameViewController.swift in Sources */,
 				1EBA72602064EABA007B0AE1 /* MenuViewController.swift in Sources */,
+				1EB0D4E32064EE290062D65E /* Soldier.swift in Sources */,
+				1EB0D4E52064EE350062D65E /* Dealer.swift in Sources */,
 				1EBA724E2064E7BD007B0AE1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

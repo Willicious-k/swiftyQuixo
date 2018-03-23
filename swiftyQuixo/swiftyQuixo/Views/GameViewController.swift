@@ -9,11 +9,13 @@
 import UIKit
 
 class GameViewController: UIViewController {
-
+  // MARK: Properties
+  @IBOutlet weak var board: UIView!
+  
+  // MARK: LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
   }
 
 }
-
 
