@@ -49,7 +49,7 @@ class GameViewController: UIViewController {
     super.viewDidAppear(animated)
     
     //Game Start animation here
-    gameController.startGameLoop()
+    gameController.startTurn()
   }
   
   //MARK:- drawing helpers
@@ -92,10 +92,11 @@ class GameViewController: UIViewController {
     for i in 0..<5 {
       for j in 0..<5 {
         if (soldierViews[i][j] != currentSelectedCell) {
-          soldierViews[i][j].backgroundColor = .white
-          soldierViews[i][j].layer.borderColor = UIColor.black.cgColor
+          soldierViews[i][j].backgroundColor = UIColor(red: 168 / 255, green: 133 / 255, blue: 83 / 255, alpha: 1.0)
+          soldierViews[i][j].layer.borderColor = UIColor(red: 168 / 255, green: 133 / 255, blue: 83 / 255, alpha: 1.0).cgColor
         }
         // user lose tap control here
+        soldierViews[i][j].tapRecognizer.removeTarget(soldierViews[i][j], action: #selector(soldierViews[i][j].selectCell(_:)))
         soldierViews[i][j].removeGestureRecognizer(soldierViews[i][j].tapRecognizer)
       }
     }
@@ -104,21 +105,36 @@ class GameViewController: UIViewController {
   
   func displayCross(for cell: SoldierView) {
     for i in 0..<5 {
-      soldierViews[i][cell.data.location.1].backgroundColor = .orange
-      soldierViews[i][cell.data.location.1].layer.borderColor = UIColor.orange.cgColor
+      soldierViews[i][cell.data.location.1].backgroundColor = UIColor(red: 188 / 255, green: 143 / 255, blue: 143 / 255, alpha: 1.0)
+      soldierViews[i][cell.data.location.1].layer.borderColor = UIColor(red: 188 / 255, green: 143 / 255, blue: 143 / 255, alpha: 1.0).cgColor
       if (i != cell.data.location.0 && (i == 0 || i == 4)) {
-        soldierViews[i][cell.data.location.1].backgroundColor = .green
-        soldierViews[i][cell.data.location.1].layer.borderColor = UIColor.green.cgColor
+        soldierViews[i][cell.data.location.1].backgroundColor = UIColor(red: 255 / 255, green: 248 / 255, blue: 220 / 255, alpha: 1.0)
+        soldierViews[i][cell.data.location.1].layer.borderColor = UIColor(red: 255 / 255, green: 248 / 255, blue: 220 / 255, alpha: 1.0).cgColor
+        soldierViews[i][cell.data.location.1].makeTargetActive()
       }
     }
     for j in 0..<5 {
-      soldierViews[cell.data.location.0][j].backgroundColor = .orange
-      soldierViews[cell.data.location.0][j].layer.borderColor = UIColor.orange.cgColor
+      soldierViews[cell.data.location.0][j].backgroundColor = UIColor(red: 188 / 255, green: 143 / 255, blue: 143 / 255, alpha: 1.0)
+      soldierViews[cell.data.location.0][j].layer.borderColor = UIColor(red: 188 / 255, green: 143 / 255, blue: 143 / 255, alpha: 1.0).cgColor
       if (j != cell.data.location.1 && (j == 0 || j == 4)) {
-        soldierViews[cell.data.location.0][j].backgroundColor = .green
-        soldierViews[cell.data.location.0][j].layer.borderColor = UIColor.green.cgColor
+        soldierViews[cell.data.location.0][j].backgroundColor = UIColor(red: 255 / 255, green: 248 / 255, blue: 220 / 255, alpha: 1.0)
+        soldierViews[cell.data.location.0][j].layer.borderColor = UIColor(red: 255 / 255, green: 248 / 255, blue: 220 / 255, alpha: 1.0).cgColor
+        soldierViews[cell.data.location.0][j].makeTargetActive()
       }
     }
+  }
+  
+  func reloadData() {
+    for i in 0..<5 {
+      for j in 0..<5 {
+        soldierViews[i][j].data = soldiers[i][j]
+      }
+    }
+    gameController.startTurn()
+  }
+  
+  func finishGame(winner: Soldier.SoldierSide) {
+    
   }
 
 }
@@ -139,5 +155,20 @@ extension GameViewController: SoldierViewDelegate {
       currentSelectedCell = sender
     }
     makeDeactive()
+  }
+  
+  func selectedTarget(_ sender: SoldierView) {
+    targetMovedCell = sender
+    
+    currentSelectedCell.face.text = sender.faceString[Soldier.SoldierSide.none.rawValue]
+    
+    for i in 0..<5 {
+      for j in 0..<5 {
+        soldierViews[i][j].backgroundColor = .white
+        soldierViews[i][j].layer.borderColor = UIColor.black.cgColor
+      }
+    }
+    
+    gameController.playerMoved(from: currentSelectedCell.data, to: targetMovedCell.data)
   }
 }

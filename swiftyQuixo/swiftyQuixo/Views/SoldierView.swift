@@ -10,6 +10,7 @@ import UIKit
 
 protocol SoldierViewDelegate {
   func selectedCell(_ sender: SoldierView)
+  func selectedTarget(_ sender: SoldierView)
 }
 
 class SoldierView: UIView {
@@ -19,8 +20,6 @@ class SoldierView: UIView {
   
   var face: UILabel!
   var tapRecognizer = UITapGestureRecognizer()
-//  var panRecognizer = UIPanGestureRecognizer()
-//  var swipeRecognizer = UISwipeGestureRecognizer()
   
   // MARK: inits
   required init?(coder aDecoder: NSCoder) {
@@ -33,17 +32,12 @@ class SoldierView: UIView {
     
     layer.cornerRadius = 28
     layer.borderWidth = 0.5
-    layer.borderColor = UIColor.black.cgColor
+    layer.borderColor = UIColor(red: 168 / 255, green: 133 / 255, blue: 83 / 255, alpha: 1.0).cgColor
+    layer.backgroundColor = UIColor(red: 168 / 255, green: 133 / 255, blue: 83 / 255, alpha: 1.0).cgColor
     
     face = UILabel(frame:CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
     face.textAlignment = .center
     
-    tapRecognizer.addTarget(self, action: #selector(self.selectCell(_:)))
-    
-//    panRecognizer.minimumNumberOfTouches = 1
-//    panRecognizer.addTarget(self, action: #selector(self.moveCell))
-//    swipeRecognizer.direction = .down
-//    swipeRecognizer.addTarget(self, action: #selector(self.swipeCell))
     addSubview(face)
   }
   
@@ -64,13 +58,17 @@ class SoldierView: UIView {
   //MARK: helpers
   func makeActive(player: Soldier.SoldierSide) {
     if isEdge() && (data.side == .none || data.side == player){
-      layer.borderColor = UIColor.green.cgColor
-      self.backgroundColor = UIColor.green
+      layer.borderColor = UIColor(red: 255 / 255, green: 248 / 255, blue: 220 / 255, alpha: 1.0).cgColor
+      self.backgroundColor = UIColor(red: 255 / 255, green: 248 / 255, blue: 220 / 255, alpha: 1.0)
       
+      tapRecognizer.addTarget(self, action: #selector(self.selectCell(_:)))
       self.addGestureRecognizer(tapRecognizer)
-//      self.addGestureRecognizer(swipeRecognizer)
-      // self.removeGestureRecognizer(tapRecognizer)
     }
+  }
+  
+  func makeTargetActive() {
+    tapRecognizer.addTarget(self, action: #selector(self.selectTarget(_:)))
+    self.addGestureRecognizer(tapRecognizer)
   }
   
   func isEdge() -> Bool {
@@ -84,11 +82,7 @@ class SoldierView: UIView {
     delegate?.selectedCell(self)
   }
   
-//  @objc func moveCell(_ sender: UIPanGestureRecognizer) {
-//    self.center = self.panRecognizer.location(in: self.superview)
-//  }
-//
-//  @objc func swipeCell(_ sender: UISwipeGestureRecognizer) {
-//    self.center = self.swipeRecognizer.location(in: self.superview)
-//  }
+  @objc func selectTarget(_ sender: UITapGestureRecognizer) {
+    delegate?.selectedTarget(self)
+  }
 }
