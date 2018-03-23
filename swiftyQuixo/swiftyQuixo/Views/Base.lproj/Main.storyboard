@@ -106,8 +106,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhe-dG-Psj">
-                                <rect key="frame" x="170" y="318" width="34" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1C-9J-Z0g" userLabel="Board">
+                                <rect key="frame" x="12" y="20" width="351" height="351"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="S1C-9J-Z0g" secondAttribute="height" multiplier="1:1" id="mDh-7P-UYz"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhe-dG-Psj">
+                                <rect key="frame" x="170" y="478" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <segue destination="VzH-xd-I9I" kind="show" id="ErF-ju-Pjp"/>
@@ -116,8 +124,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yhe-dG-Psj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="I5u-3C-ELF"/>
-                            <constraint firstItem="yhe-dG-Psj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eTt-PC-BgK"/>
+                            <constraint firstItem="S1C-9J-Z0g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="nwd-xJ-AMg"/>
+                            <constraint firstItem="S1C-9J-Z0g" firstAttribute="width" secondItem="S1C-9J-Z0g" secondAttribute="height" multiplier="1:1" id="rXf-y2-SWK"/>
+                            <constraint firstItem="S1C-9J-Z0g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sqY-2W-19o"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S1C-9J-Z0g" secondAttribute="trailing" constant="12" id="uWm-Bp-5s2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

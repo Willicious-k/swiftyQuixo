@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct Soldier {
+  var location: (Int, Int) = (0, 0)
+  var side: SoldierSide = .none
+  
+  enum SoldierSide {
+    case none
+    case p1
+    case p2
+  }
+}

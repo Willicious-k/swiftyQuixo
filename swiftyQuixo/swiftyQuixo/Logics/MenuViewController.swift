@@ -9,11 +9,11 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
+    // test script
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      super.viewDidLoad()
+      let testCell = SoldierView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+      self.view.addSubview(testCell)
     }
 }
 
