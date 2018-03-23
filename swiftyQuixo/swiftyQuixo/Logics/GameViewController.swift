@@ -20,6 +20,10 @@ class GameViewController: UIViewController {
   var targetMovedCell: SoldierView!
   
   // MARK: drawable Properties
+  @IBOutlet weak var resultLabel: UILabel!
+  @IBOutlet weak var resultView: UIView!
+  @IBOutlet weak var p2Label: UILabel!
+  @IBOutlet weak var p1Label: UILabel!
   @IBOutlet weak var board: UIView!
   var boardWidth: CGFloat = 0
   var boardHeight: CGFloat = 0
@@ -86,6 +90,13 @@ class GameViewController: UIViewController {
       }
     }
     currentPlayer = player
+    if currentPlayer == .p1 {
+      p1Label.textColor = UIColor(red: 255 / 255, green: 248 / 255, blue: 220 / 255, alpha: 1.0)
+      p2Label.textColor = .black
+    } else {
+      p1Label.textColor = .black
+      p2Label.textColor = UIColor(red: 255 / 255, green: 248 / 255, blue: 220 / 255, alpha: 1.0)
+    }
   }
   
   func makeDeactive() {
@@ -134,7 +145,11 @@ class GameViewController: UIViewController {
   }
   
   func finishGame(winner: Soldier.SoldierSide) {
-    print("finished!")
+    print("\(currentPlayer) won!")
+    resultLabel.text = "\(currentPlayer) won!"
+    resultView.alpha = 0.5
+    resultLabel.alpha = 0.5
+
   }
 
 }
