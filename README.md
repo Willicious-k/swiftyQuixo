@@ -1,4 +1,9 @@
 # swiftyQuixo
+
+## 0. 구동 영상
+[to:YouTube](https://youtu.be/IA9DeAJermc)
+---
+
 ## 1. 팀 구성 소개 + 초기 기획안 + 기획 의도
 ### 팀구성
  - 김용호 : PM
